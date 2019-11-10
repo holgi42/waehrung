@@ -16,6 +16,7 @@
   <Datei>
     <Url>https://www.ecb.europa.eu/stats/eurofxref/eurofxref-sdmx.xml</Url>
     <Ablage>kurse/eurofxref-sdmx.xml</Ablage>
+    <LeseAb>2008-01-01</LeseAb>
   </Datei>
   
   <Waehrung Kurz="AUD">
