@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Config>
+  
+  <Datenbank>
+    <NoConnect/>
+    <Connect>jdbc:oracle:thin:scott/tiger@inf-ssd-db-prod.spanset.local:1521:prod</Connect>
+    <Schema>DW</Schema>
+  </Datenbank>
+  
+  <Mailbox>
+    <BenutzeMailBox/>
+    <MbNummer>260</MbNummer>
+    <MbAbsender>Waeh</MbAbsender>
+  </Mailbox>
+  
+  <Datei>
+    <Url>https://www.ecb.europa.eu/stats/eurofxref/eurofxref-sdmx.xml</Url>
+    <Ablage>kurse/eurofxref-sdmx.xml</Ablage>
+  </Datei>
+  
+  <Waehrung Kurz="AUD">
+    <Ktxt lg="de">Austral Dollar</Ktxt>
+    <Ktxt lg="en">Austral. dollar</Ktxt>
+    <Ktxt lg="fr">Dollar Austral.</Ktxt>
+    <Txt lg="de">Australischer Dollar</Txt>
+    <Txt lg="en">Australian dollar</Txt>
+    <Txt lg="fr">Dollar Australien</Txt>
+  </Waehrung>
+
+  <Waehrung Kurz="BRL">
+    <Ktxt lg="de">Brasil. Real</Ktxt>
+    <Ktxt lg="en">Brasil. real</Ktxt>
+    <Txt lg="de">Brasilianischer Real</Txt>
+    <Txt lg="en">Brasilian real</Txt>
+  </Waehrung>
+
+  <Waehrung Kurz="CAD">
+    <Ktxt lg="de">Kanad. Dollar</Ktxt>
+    <Ktxt lg="en">Canad. dollar</Ktxt>
+    <Txt lg="de">Kanadischer Dollar</Txt>
+    <Txt lg="en">Canadian dollar</Txt>
+  </Waehrung>
+  
+  <Waehrung Kurz="CHF">
+    <Ktxt lg="de">Schw. Franken</Ktxt>
+    <Ktxt lg="en">Sw. franc</Ktxt>
+    <Txt lg="de">Schweizer Franken</Txt>
+    <Txt lg="en">Swiss franc</Txt>
+  </Waehrung>
+  
+  <Waehrung Kurz="CNY">
+    <Ktxt lg="de">Yuan</Ktxt>
+    <Ktxt lg="en">Yuan</Ktxt>
+    <Txt lg="de">Chinesischer Yuan renminbi</Txt>
+    <Txt lg="en">Chinese yuan renminbi</Txt>
+  </Waehrung>
+  
+  <Waehrung Kurz="CZK">
+    <Ktxt lg="de">Chech. Krone</Ktxt>
+    <Ktxt lg="en">Czech koruna</Ktxt>
+    <Txt lg="de">Tchechische Krone</Txt>
+    <Txt lg="en">Czech koruna</Txt>
+  </Waehrung>
+  
+  <Waehrung Kurz="DKK">
+    <Ktxt lg="de">Dän. Krone</Ktxt>
+    <Ktxt lg="en">Dan. krone</Ktxt>
+    <Txt lg="de">Dänische Krone</Txt>
+    <Txt lg="en">Danish krone</Txt>
+  </Waehrung>
+  
+  <Waehrung Kurz="GBP">
+    <Ktxt lg="de">Brit. Pfund</Ktxt>
+    <Ktxt lg="en">Brit. Pound</Ktxt>
+    <Txt lg="de">Britsche Pfund</Txt>
+    <Txt lg="en">British Pound sterling</Txt>
+  </Waehrung>
+  
+  <Waehrung Kurz="HUF">
+    <Ktxt lg="de">Forint</Ktxt>
+    <Ktxt lg="en">forint</Ktxt>
+    <Txt lg="de">Ungarische Forint</Txt>
+    <Txt lg="en">Hungarian forint</Txt>
+  </Waehrung>
+  
+  <Waehrung Kurz="NOK">
+    <Ktxt lg="de">Nor. Krone</Ktxt>
+    <Ktxt lg="en">Nor. krone </Ktxt>
+    <Txt lg="de">Norwegische Krone</Txt>
+    <Txt lg="en">Norwegian krone</Txt>
+  </Waehrung>
+  
+  <Waehrung Kurz="PLN">
+    <Ktxt lg="de">Zloty</Ktxt>
+    <Ktxt lg="en">zloty</Ktxt>
+    <Txt lg="de">Polnische Zloty</Txt>
+    <Txt lg="en">Polish zloty</Txt>
+  </Waehrung>
+  
+  <Waehrung Kurz="RUB">
+    <Ktxt lg="de">Rubel</Ktxt>
+    <Ktxt lg="en">rouble</Ktxt>
+    <Txt lg="de">Russische Rubel</Txt>
+    <Txt lg="en">Russian rouble</Txt>
+  </Waehrung>
+  
+  <Waehrung Kurz="SEK">
+    <Ktxt lg="de">Swe. Krone</Ktxt>
+    <Ktxt lg="en">Swe. krona</Ktxt>
+    <Txt lg="de">Swedische Kronen</Txt>
+    <Txt lg="en">Swedish krona</Txt>
+  </Waehrung>
+  
+  <Waehrung Kurz="USD">
+    <Ktxt lg="de">US Dollar</Ktxt>
+    <Ktxt lg="en">Us dollar</Ktxt>
+    <Txt lg="de">US Dollar</Txt>
+    <Txt lg="en">Us dollar</Txt>
+  </Waehrung>
+  
+</Config>
