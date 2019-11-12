@@ -1,3 +1,4 @@
+import java.sql.SQLException;
 
 public class Waehrung {
 	static Config cnf; 
@@ -6,10 +7,19 @@ public class Waehrung {
 		cnf=new Config(cmd);
 		String bef=cmd.getS(0);
 		if (bef==null) prex("Kein Befehl angegeben.",-1);
-		switch(bef) {
-		case "showconf": cnf.zeige(); break;
-		default: prex("Unbekannter Befehl:"+bef,-1);
-		}
+		try {
+			switch(bef) {
+			case "showconf": cnf.zeige(); break;
+			case "holexml": Kurse.holeKurse(); break;
+			case "showwaeh": Kurse.zeigeWaeh(); break;
+			case "einlesen": Kurse.einlesen(); break;
+			case "resync":
+				Kurse.openDb();
+				cnf.resync();
+				break;
+			default: prex("Unbekannter Befehl:"+bef,-1);
+			}			
+		} catch(SQLException e) {prex("SQL-Exception",e,-9);}
 	}
 	
 	public static void prex(String m,Exception e,int status) {

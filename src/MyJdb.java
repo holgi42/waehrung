@@ -132,7 +132,7 @@ class SqConn{
     catch (SQLException e){
       String s;
       s=b+"\nMessage:"+e.getMessage();
-      deb("Befehl Exception",s);
+      System.out.println("Befehl Exception"+s);
       throw e;
     }
     return anz;

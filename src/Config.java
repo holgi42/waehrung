@@ -1,3 +1,4 @@
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,6 +36,29 @@ class WaehDef{
 	public void zeige() {
 		System.out.println(String.format("  %-5s %-20s %s", name,kDe,lDe));
 	}
+	
+	public void regelDb(Element x) throws SQLException {
+		String tp,ov;
+		List <Element> lo=x.getChildren("Obs",Kurse.ns2);
+		Kurse.co.Bef("delete from "+Waehrung.cnf.halterSchema+".Kurse where Waeh='"+name+"'");
+		for (Element k:lo) {
+			tp=k.getAttributeValue("TIME_PERIOD");
+			ov=k.getAttributeValue("OBS_VALUE");
+			if ((tp==null)||(ov==null)) Waehrung.prex("Konnte TIME_PERIOD oder OBS_VALUE nicht finden",-4);
+			String q="insert into "+Waehrung.cnf.halterSchema+".Kurse values('"+name+"',to_date('"+tp+"','YYYY-MM-DD'),"+ov+")";
+//			System.out.println(q);
+			Kurse.co.Bef(q);
+		}
+		Kurse.co.con.commit();
+		Kurse.co.Bef("begin "+Waehrung.cnf.halterSchema+".Waehrung.BaueHist; end");
+	}
+	
+	public void resync() throws SQLException {
+		String q="insert into WaehDef values('"+name+"','"+kDe+"','"+kEn+"','"+kFr+"','";
+		q+=lDe+"','"+lEn+"','"+lFr+"')";
+		Kurse.co.Bef(q);
+	}
+
 }
 
 public class Config {
@@ -57,7 +81,6 @@ public class Config {
             halterSchema=d.getChildText("Schema");
             dbOben=true;
             if (d.getChild("NoConnect")!=null) dbOben=false;
-            System.out.println("dbConn:"+dbConn+", halter:"+halterSchema);
             
             d=x.getChild("Mailbox");
             if (d==null) xerr("Sektion Mailbox ist nicht vorhanden.");
@@ -112,6 +135,20 @@ public class Config {
 		}
 	}
 	
+	public WaehDef getWaeh(String kurz) {
+		for (WaehDef k:wd)
+			if (k.name.equals(kurz)) return k;
+		return null;
+	}
+	
+	public void resync() throws SQLException{
+		Kurse.co.con.setAutoCommit(false);
+		Kurse.co.Bef("delete from WaehDef");
+		for (WaehDef k:wd) k.resync();
+		Kurse.co.con.commit();
+		Kurse.co.con.setAutoCommit(true);
+	}
+		
 	protected String env(String was,String ersatz) {
 		String h=System.getenv(was);
 		if (h!=null) return h;
